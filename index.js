@@ -55,14 +55,14 @@ function parseMacAddress(address) {
 var macAddress = randomHost;
 var macAddressLoaded = false;
 
-function loadMacAddress() {
-  require('macaddress').one(function (err, result) {
-      if (!err) {
-          macAddress = parseMacAddress(result);
-      }
-      macAddressLoaded = true;
-  });
-};
+// function loadMacAddress() {
+//   require('macaddress').one(function (err, result) {
+//       if (!err) {
+//           macAddress = parseMacAddress(result);
+//       }
+//       macAddressLoaded = true;
+//   });
+// };
 
 // UUID class
 var UUID = function (uuid) {
@@ -425,30 +425,30 @@ UUID.namespace = {
     x500: new UUID("6ba7b814-9dad-11d1-80b4-00c04fd430c8")
 };
 
-UUID.v1 = function v1(arg1, arg2) {
+// UUID.v1 = function v1(arg1, arg2) {
 
-    var options = arg1 || {};
-    var callback = typeof arg1 == 'function' ? arg1 : arg2;
+//     var options = arg1 || {};
+//     var callback = typeof arg1 == 'function' ? arg1 : arg2;
 
-    var nodeId = options.mac;
+//     var nodeId = options.mac;
 
-    if (nodeId === undefined) {
-        if(!macAddressLoaded) {
-            loadMacAddress();
-        }
-        if (!macAddressLoaded && callback) {
-            setImmediate(function () {
-                UUID.v1(options, callback);
-            });
-            return;
-        }
-        return uuidTimeBased(macAddress, options, callback);
-    }
-    if (nodeId === false) {
-        return uuidTimeBased(randomHost, options, callback);
-    }
-    return uuidTimeBased(parseMacAddress(nodeId), options, callback);
-};
+//     if (nodeId === undefined) {
+//         if(!macAddressLoaded) {
+//             loadMacAddress();
+//         }
+//         if (!macAddressLoaded && callback) {
+//             setImmediate(function () {
+//                 UUID.v1(options, callback);
+//             });
+//             return;
+//         }
+//         return uuidTimeBased(macAddress, options, callback);
+//     }
+//     if (nodeId === false) {
+//         return uuidTimeBased(randomHost, options, callback);
+//     }
+//     return uuidTimeBased(parseMacAddress(nodeId), options, callback);
+// };
 
 UUID.v4 = uuidRandom;
 
