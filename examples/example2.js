@@ -2,27 +2,27 @@ var UUID = require('../index');
 
 setTimeout(function () {
 
-    UUID.v1({}, function (err, id) {
+    // UUID.v1({}, function (err, id) {
 
-        if (err) {
-            throw err;
-        }
-        console.log(id);
-        console.log(JSON.stringify(UUID.check(id), null, 2));
+    //     if (err) {
+    //         throw err;
+    //     }
+    //     console.log(id);
+    //     console.log(JSON.stringify(UUID.check(id), null, 2));
 
-        console.log(UUID.stringify(UUID.parse(id)));
-    });
+    //     console.log(UUID.stringify(UUID.parse(id)));
+    // });
 
-    UUID.v1({}, function (err, id) {
+    // UUID.v1({}, function (err, id) {
 
-        if (err) {
-            throw err;
-        }
-        console.log(id);
-        console.log(JSON.stringify(UUID.check(id), null, 2));
+    //     if (err) {
+    //         throw err;
+    //     }
+    //     console.log(id);
+    //     console.log(JSON.stringify(UUID.check(id), null, 2));
 
-        console.log(UUID.stringify(UUID.parse(id)));
-    });
+    //     console.log(UUID.stringify(UUID.parse(id)));
+    // });
 
     UUID.v4(function (err, id) {
 

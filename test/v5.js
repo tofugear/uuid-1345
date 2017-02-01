@@ -31,7 +31,7 @@ describe("UUID.v5", function () {
     it("generates a v5 UUID (sync, object)", function () {
         assert.equal(UUID.v5({
             name: "something",
-            namespace: UUID.v1(),
+            namespace: UUID.v4(),
             encoding: 'object'
         }).version, 5);
     });
@@ -50,7 +50,7 @@ describe("UUID.v5", function () {
     it("generates a v5 UUID (sync, buffer)", function () {
         assert.equal(new UUID(UUID.v5({
             name: "something",
-            namespace: UUID.v1(),
+            namespace: UUID.v4(),
             encoding: 'binary'
         })).version, 5);
     });
